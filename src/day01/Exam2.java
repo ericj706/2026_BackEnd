@@ -27,12 +27,20 @@ public class Exam2 {    // 클래스 시작
         // 4) byte : -128~127 저장하는 타입, 1byte
         byte b1 = 100; System.out.println(b1);
         // 5) short : +-3만정도, 2byte
-        short sh = 30000;
+        short sh1 = 30000;
         // 6) int : +-21억정도, 4byte, *** 정수의 리터럴 타입 ***
         int i1 = 2000000000; System.out.println(i1);
-        // 7) long : +-21억이상, 8byte
-        long l1= 2100000000;
+        // 7) long : +-21억이상, 8byte, *** 키보드로부터 입력한 정수는 int이므로 뒤에 L/l 붙인다
+        long l1= 21000000000L; System.out.println(l1);
 
+        // === 실수 : 부동소수점 이용한 소수점 표현은 오차가 있으므로 정교한 소수점/계산 라이브러리 ===
+        // 8) float : 소수점 8자리 표현, 4byte, *키보드로부터 입력한 실수는 double이므로 F/f
+        float f1 = 0.12345678F; System.out.println(f1);
+        // 9) double: 소수점 17자리 표현, 8byte, *(실수) 리터럴 타입*
+        double d1 = 0.123456789; System.out.println(d1);
+
+        // 8가지 타입 (기본타입, 리터럴 저장)
+        // vs 그외(String) 타입(참조타입, 객체/배열/인터페이스 등등)
 
     } // main end
 
