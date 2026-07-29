@@ -1,0 +1,38 @@
+
+[ 자바 실행 순서 ]
+    1. src폴더내 .java 확장자에서 java 코드 작성
+    2. 빌드(build) : run java 실행
+    3. [컴파일] bin 폴더내 .class 확장자 파일 (자동)생성
+[ 주석 ]
+    1. // 한줄 주석
+    2. /*  */ 여러줄 주석
+[ 용어 ]
+    1. package : 해당 클래스가 위치한 폴더명
+    2. class : 자바에서 컴파일 하는 최소의 단위 *클래스{} 안에서 코드 작성*
+    3. main함수 : 자바에서 코드 실행하는 흐름 = 스레드 제공
+    4. ;세미콜론 : 코드의 한문장 마침 뜻
+[ 자료 ] : 데이터
+    1. 리터럴 : 상수
+    2. 자료타입(형)
+        (1) boolean 1byte   true/false
+        (2) char    2byte   ''감싼 문자1개저장
+        (3) byte    1byte   +-128
+        (4) short   2byte   +-3만
+        (5) int     4byte   +-21억      *정수 리터럴 기본타입*
+        (6) long    8byte   +-21억이상,  L/l
+        (7) float   4byte   소수점 8자리 표현,  F/f
+        (8) double  8byte   소수점 17자리 표현,   *실수 리터럴 기본타입*
+        (*) String  N*2byte ""감싼 문자N개저장,  문자열객체(배열)
+
+[ 출력함수 ]
+    1. System.out.print();    : 출력
+    2. System.out.println();  : 출력+줄바꿈
+    3. System.out.printf("형식문자", 자료); : 형식문자
+    ** 이스케이프/제어 문자: \n(줄바꿈) \t \' \" \\
+    ** gudtlranswk : %s문자열 %d정수 %c문자 %f실수 , %자릿수s %-자릿수s %0자릿수s %전체자릿수.소수점자릿수f
+[ 입력함수 ] : 다양한 입력방식 제공.
+    1. 입력객체 생성 (클래스마다 1번씩)
+        Scanner scan = new Scanner(System.in);
+    2. 입력객체 통한 입력함수 ( nextXXX(), 타입 주의, 엔터기준으로 구분)
+        타입 변수명 = scan.nextXXX();
+    
