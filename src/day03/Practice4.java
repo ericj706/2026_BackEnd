@@ -171,7 +171,7 @@ viewer: '콘텐츠 조회만 가능합니다.'
 겨울: 12, 1, 2월
 입력 예시:
 월(1~12)을 입력하세요: 9
-출력 예시: 가을 */
+출력 예시: 가을 
         System.out.print("월(1~12)을 입력하세요: "); String month = scan.next();
         if (month.equals('3')&&month.equals('4')&&month.equals('5')) {
             System.out.println("봄");
@@ -189,7 +189,7 @@ viewer: '콘텐츠 조회만 가능합니다.'
 첫 번째 정수: 45
 두 번째 정수: 12
 세 번째 정수: 78
-출력 예시: 가장 큰 수: 78 */ 
+출력 예시: 가장 큰 수: 78 
         System.out.print("첫번째 정수: "); int num1 = scan.nextInt();
         System.out.print("두번째 정수: "); int num2 = scan.nextInt();
         System.out.print("세번째 정수: "); int num3 = scan.nextInt();
@@ -217,7 +217,12 @@ viewer: '콘텐츠 조회만 가능합니다.'
 또는 연도가 400의 배수일 때
 입력 예시:
 연도를 입력하세요: 2024
-출력 예시: 2024년은 윤년입니다. */
+출력 예시: 2024년은 윤년입니다. */ 
+        System.out.print("연도를 입력하세요: "); int year = scan.nextInt();
+        if ((year%4==0 && year%100!=0) || year%400==0) {
+            System.out.println(year+"년은 윤년입니다.");
+        }else{System.out.println(year+"년은 윤년이 아닙니다.");}
+
 
 /*[문제 14] Scanner를 이용해 서로 다른 세 개의 정수를 입력받아, 오름차순(작은 수부터 큰 수 순서)으로 정렬하여 출력하는 프로그램을 작성하시오.
 입력 예시:
@@ -225,7 +230,12 @@ viewer: '콘텐츠 조회만 가능합니다.'
 두 번째 정수: 4
 세 번째 정수: 8
 출력 예시: 4, 8, 17 */
-
+        System.out.print("첫번째 정수: "); int num1 = scan.nextInt();
+        System.out.print("두번째 정수: "); int num2 = scan.nextInt();
+        System.out.print("세번째 정수: "); int num3 = scan.nextInt();
+        int max =num1;
+        if (max<num2) {max = num2; }
+        else if(max)
 
 /*[문제 15] 가위바위보 게임
 지시: 두 명의 플레이어가 참여하는 가위바위보 게임을 만드시오.
@@ -238,9 +248,7 @@ viewer: '콘텐츠 조회만 가능합니다.'
 플레이어1 (0:가위, 1:바위, 2:보): 1
 플레이어2 (0:가위, 1:바위, 2:보): 0
 출력 예시: 플레이어1 승리 */
-        System.out.print("플레이어1 (0:가위, 1:바위, 2:보):");
-
-
+        
 
     }//m e
 }//c e
