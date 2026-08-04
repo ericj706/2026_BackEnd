@@ -2,7 +2,7 @@ package day03;
 
 import java.util.Scanner;
 
-public class day03 {
+public class Practice4 {
     public static void main(String[] args) {
         Scanner scan = new Scanner( System.in );
 /*[문제 1] Scanner를 이용해 두 개의 점수(int)를 입력받아 총점을 계산하세요.

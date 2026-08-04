@@ -1,142 +1,298 @@
 package day04;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Practice5 {
     public static void main(String[] args) {
-/*[문제 1] 정수 5개(10, 20, 30, 40, 50)를 저장할 수 있는 int 타입의 배열 numbers1를 선언과 동시에 초기화하세요.
-배열의 2번 인덱스에 저장된 값을 콘솔에 출력하세요.
-        int[] numbers1 = {10,20,30,40,50};
-        System.out.println(numbers1);
-        System.out.println(Arrays.toString(numbers1));
-        System.out.println(numbers1[2]);
-
-/*[문제 2] String 타입의 데이터를 3개 저장할 수 있는 배열 season을 new 키워드를 사용하여 생성하세요.
-각 인덱스에 "봄", "여름", "가을" 값을 순서대로 할당하세요.
-Arrays.toString()을 사용하여 배열의 모든 요소를 한 번에 출력하세요.
-        String[] season = new String[3];
-        season[0] = "봄"; season[1] = "여름"; season[2] = "가을"; 
-        System.out.println(Arrays.toString(season));
-
-/*[문제 3] 다음과 같은 과일 배열이 있습니다. for 반복문을 사용하여 배열의 모든 요소를 하나씩 콘솔에 출력하시오.
-선언 코드: String[] fruits = {"사과", "바나나", "포도", "딸기"};
-        String[] fruits = {"사과", "바나나", "포도", "딸기"};
-        for (int i = 0; i < fruits.length; i++) {
-            System.out.println(fruits[i]);
-        }
-/*[문제 4] 다음 학생들의 점수가 담긴 배열이 있습니다. for 반복문을 사용하여 모든 점수의 합계와 평균을 계산하여 콘솔에 출력하시오.
-요구 조건: 평균은 소수점까지 정확하게 계산되어야 합니다.
-선언 코드: 
-        int[] score1 = {85, 92, 78, 65, 95};
-        int 합계 = 0;
-        for (int score : score1) {
-            합계 += score;
-        }
-        System.out.printf("합계: %d, 평균: %f \n", 합계, 합계/(double)score1.length);
-*/
-/*[문제 5] 점수 배열에서 100점 만점자가 처음 나타나면, "100점 만점자를 찾았습니다!"라고 출력하고 반복문을 즉시 종료하는 프로그램을 작성하시오.
-선언 코드: 
-        int[] scores2 = {77, 82, 100, 54, 96};
-        for (int i = 0; i < scores2.length; i++) {
-            if(scores2[i]==100){System.out.println("100점 만점자를 찾았습니다!");break;}
-        }
-
-
-/*[문제 6] 다음 배열에서 'A'형 혈액형을 가진 사람이 몇 명인지 for 반복문을 통해 세고, 그 수를 콘솔에 출력하시오.
-선언 코드: 
-        String[] bloodTypes = {"A", "B", "O", "AB", "A", "B", "A"};
-        int A = 0;
-        for (int i = 0; i < bloodTypes.length; i++) {
-            if(bloodTypes[i].equals("A")){A++;}
-        }
-        System.out.println(A);
-*/
-/*[문제 7] 주어진 숫자 배열에서 가장 큰 값을 찾아 콘솔에 출력하는 프로그램을 작성하시오.
-선언 코드: 
-        int[] numbers2 = {23, 5, 67, 12, 88, 34};
-        int max = numbers2[0];
-        for (int number: numbers2) {
-            if(max<number){max = number;}
-        }
-        System.out.println(max);
-
-
-/*[문제 8] products(상품 목록)와 stock(재고 수량) 배열이 있습니다. (*상품명과 재고수량 인덱스가 같다는 가정 )
-Scanner를 이용해 사용자로부터 구매할 상품명과 수량을 입력받아, 재고가 충분하면 "구매 완료!"를 출력하고 재고를 차감하세요.
-재고가 부족하면 "재고가 부족합니다."를, 없는 상품이면 "없는 제품명입니다."를 출력합니다.
-선언 코드: 
-        Scanner scan = new Scanner(System.in);
-
-        String[] products = {"볼펜", "노트", "지우개"};
-        int[] stock = {10, 5, 20};
-        System.out.println("상품명을 입력하세요: "); String 상품 = scan.next();
-        System.out.println("상품명을 입력하세요: "); int 재고 = scan.nextInt();
-
-        boolean find = false;   // false 동일한 제품명 없다. true 있다.
         
-        for (int j = 0; j < products.length; j++) {
-            if(상품.equals(products[j])){
-                find = true;
-                if(재고 <= stock[j]){
-                    stock[j]-= 재고;
-                    break;
-                }else{System.out.println("재고가 부족합니다.");}
+
+/*[문제 1] for문을 사용하여 1부터 10까지의 숫자를 한 줄에 하나씩 출력하는 프로그램을 작성하시오.
+        int[] ary ={1,2,3,4,5,6,7,8,9,10};
+        for( int num : ary){
+            System.out.println(num);
+        }
+*/
+
+/*[문제 2] for문을 사용하여 10부터 1까지의 숫자를 역순으로 출력하는 프로그램을 작성하시오.
+        for(int i=10; i>=1; i--){
+            System.out.println(i);
+        }
+
+        int 문제2 =10;
+        while(문제2>=1){
+            System.out.println(문제2);
+            문제2--;
+        }
+
+/*[문제 3] for문을 사용하여 1부터 50까지 모든 정수의 합계를 구하여 최종 결과를 출력하시오., 출력 예시: 1부터 50까지의 합계: 1275
+        int sum = 0;
+        for(int i=1; i<=50; i++){
+            sum+=i;
+        }
+        System.out.print("1부터 50까지의 합계: "+sum);
+
+        int sum =0;
+        int 문제3 = 1;
+        while(문제3<=50){sum+=문제3; 문제3++;}
+        System.out.println(sum);
+
+/*[문제 4] for문과 if문을 사용하여, 1부터 20까지의 숫자 중 짝수만 출력하는 프로그램을 작성하시오.
+
+        for (int i = 0; i <=20; i++) {
+            if (i%2==0) {
+                System.out.println(i);
             }
         }
-        if(find == false){System.out.println("없는 제품명입니다.");}
+*/
 
-/*[문제 9] 주어진 영화 이름과 평점 배열을 이용하여, 각 영화의 평점을 별(★, ☆)로 시각화하여 출력하는 프로그램을 작성하시오.(* 영화명과 평점 인덱스가 같다는 가정 )
-요구 조건: 각 영화의 평점(10점 만점)만큼 꽉 찬 별(★)을, 나머지 점수만큼 빈 별(☆)을 출력합니다.
-예시: 평점이 8점이면 ★★★★★★★★☆☆ (총 10개의 별)
-선언 코드:
+/*[문제 5] 1부터 30까지의 숫자 중, 3의 배수는 건너뛰고 나머지 숫자만 출력하는 프로그램을 작성하시오, 요구 조건: continue 문을 반드시 사용하시오.
+        for (int i = 0; i <=30; i++) {
+            if (i%3==0) {
+                continue;
+            }else{System.out.println(i);}
+        }
+*/
+
+/*[문제 6] 1부터 순서대로 숫자를 더해나갈 때, 합계가 처음으로 100을 초과하는 시점의 숫자와 그때까지의 합계를 출력하고 반복문을 즉시 종료하시오.
+
+요구 조건: break 문을 반드시 사용하시오.
+
+출력 예시:14까지 더했을 때 합계가 105로 100을 넘습니다.
+        int sum =0;
+        for (int i =0; true; i++) { // 무한증감
+            sum+=i;
+            if(sum>100){break;}
+        }
+        System.out.println(sum);
+*/
+
+/*[문제 7] 중첩 for문을 사용하여 아래와 같이 별(*)로 이루어진 직각삼각형을 출력하시오.
+
 출력 예시:
-히든페이스 ★★★★★★★★☆☆
-위키드 ★★★★☆☆☆☆☆☆
-글래디에이터2 ★★★★★★★☆☆☆
-청설 ★★★★★★☆☆☆☆
 
-        String[] movieNames = {"히든페이스", "위키드", "글래디에이터2", "청설"};
-        int[] movieRatings = {8, 4, 7, 6};
-        for (int i = 0; i < movieRatings.length; i++) {
-            String name = movieNames[i];
-            System.out.print(name);
+*
+**
+***
+****
+*****
 
-            for (int star = 1; star <= 10; star++) {
-                if (star<=movieRatings[i]) {
-                    System.out.print("★ ");
-                }else{System.out.print("☆ ");}
+줄은 1부터 5까지 1씩 증가, for(int줄=1; 줄<=5; 줄++)
+별은 1부터 (1 2 3 4 5) 현재줄수까지 1씩 증가, for( int 별 <= 줄; 별++)
+
+
+        
+        for(int line =1; line<=5; line++) {
+            for(int star =1; star<=line; star++) {
+                System.out.print('*');
+            }
+            System.out.println(); // 줄바꿈 처리
+        }
+
+
+
+/*[문제 8] 중첩 for문을 사용하여 아래와 같이 별(*)로 이루어진 역직각삼각형을 출력하시오.
+
+출력 예시:
+
+*****
+****
+***
+**
+*
+
+
+        for(int i =1; i<=5; i++){
+            for(int j =1; j<=5-i+1; j++){
+                System.out.print('*');
             }
             System.out.println();
         }
-        
 
-/*[문제 10] 차량별 주차 시간 데이터가 주어졌을 때, 아래의 요금 규정에 따라 각 차량이 지불해야 할 최종 주차 요금을 계산하여 출력하시오.(* 차량번호 와 이용시간 인덱스가 같다는 가정 )
-요금 규정:
-기본 요금: 최초 30분까지 1,000원
-추가 요금: 30분 초과 시, 매 10분마다 500원씩 추가
-일일 최대 요금: 20,000원 (아무리 오래 주차해도 20,000원을 초과할 수 없음)
-선언 코드:
 
-출력 예시:
-210어7125: 65분 주차, 최종 요금: 2500원
-142가7415: 30분 주차, 최종 요금: 1000원
-888호8888: 140분 주차, 최종 요금: 6500원
-931나8234: 420분 주차, 최종 요금: 20000원*/
+/*[문제 9] Scanner와 무한루프를 사용하여, 사용자가 "end"를 입력할 때까지 계속해서 문자열을 입력받는 프로그램을 작성하시오. "end"가 입력되면,
 
-        String[] carNumbers = {"210어7125", "142가7415", "888호8888", "931나8234"};
-        int[] usageMinutes = {65, 30, 140, 420};
-        for (int i = 0; i < carNumbers.length; i++) {
-            System.out.println(carNumbers[i]+": "+usageMinutes[i]+"분 주차, ");
-            int fee = 1000 ;
-            
-            if(usageMinutes[i]>=30){
-                fee += (usageMinutes[i]-30) / 10 *500;
-                fee = fee >= 20000 ? 20000 : fee;
+그 전까지 입력된 문자열의 총 횟수를 계산하여 아래 출력 예시와 같이 출력한 뒤 프로그램을 종료하시오.
+
+요구 조건:
+
+무한루프를 사용하시오 (for(;;) 또는 while(true)).
+
+입력 횟수를 저장할 count 변수를 사용하시오.
+
+break를 사용하여 루프를 탈출하시오.
+
+문자열 비교는 .equals() 메소드를 사용하시오.
+
+실행 예시:
+
+1회 입력 : 자바
+
+2회 입력 : 자바스크립트
+
+3회 입력 : 파이썬
+
+4회 입력 : HTML
+
+5회 입력 : CSS
+
+6회 입력 : C언어
+
+7회 입력 : end
+
+[안내] 프로그램을 종료 합니다.[총 6회 입력]
+        Scanner scan = new Scanner(System.in);
+        int count = 0;
+        for( int i =1; true;i++ ){
+            System.out.print(i+"회 입력: "); String 입력 = scan.next();
+            if (입력.equals("end")) {
+                break;
             }
-            System.out.println("최종요금"+fee+"원");
+            count++;
         }
+        System.out.println(count);
+        */
+
+
+/*[문제 10] 아래 선언된 4개의 변수는 7월 각 주차별 매출액입니다. 각 매출액을 '만원' 단위로 변환하고, 백만원 단위마다 '■' 문자로 시각화하여 아래 출력 예시와 같이 보고서를 출력하시오.
+
+선언 코드:
+int july1 = 3532100;
+int july2 = 9123700;
+int july3 = 5183400;
+int july4 = 11738700;
+
+요구 조건:
+
+매출액을 10000으로 나눈 몫을 사용하여 '만원' 단위를 계산합니다.
+'만원' 단위 값을 다시 100으로 나눈 몫만큼 for문을 사용하여 '■' 문자를 반복 출력합니다.
+출력 예시:
+
+------- 7월 매출액 -------
+
+1주차 : ■■■353만원
+2주차 : ■■■■■■■■■912만원
+3주차 : ■■■■■518만원
+4주차 : ■■■■■■■■■■■1173만원 
+
+        int july1 = 3532100; july1 /= 10000;
+        int july2 = 9123700; july2 /= 10000;
+        int july3 = 5183400; july3 /= 10000;
+        int july4 = 11738700; july4 /= 10000;
+
+        for (int i = 1; i <= july1/100; i++) { // -> 100만 자릿수
+            System.out.print('■');
+        } System.out.println(july1+"만원");
+        for (int i = 1; i <= july2/100; i++) { 
+            System.out.print('■');
+        } System.out.println(july2+"만원");
+        for (int i = 1; i <= july3/100; i++) { 
+            System.out.print('■');
+        } System.out.println(july3+"만원");
+        for (int i = 1; i <= july4/100; i++) { 
+            System.out.print('■');
+        } System.out.println(july4+"만원");
+
+        System.out.println(july1/10000+"만원");
+
+
+
+/*[문제 11] Scanner와 for(;;) 무한루프를 사용하여 간단한 ATM 기기를 만드시오.
+
+요구 조건:
+
+사용자에게 "1:입금 | 2:출금 | 3:잔고 | 4:종료" 메뉴를 보여줍니다.
+
+Scanner로 메뉴 번호를 입력받습니다.
+
+1번을 선택하면 "입금액:"을 물어보고, 입력받은 금액만큼 잔고(balance)를 증가시킵니다.
+
+2번을 선택하면 "출금액:"을 물어보고, 입력받은 금액만큼 잔고를 감소시킵니다. (단, 잔고보다 큰 금액은 출금할 수 없다고 안내)
+
+3번을 선택하면 현재 잔고를 출력합니다.
+
+4번을 선택하면 "프로그램을 종료합니다." 메시지를 출력하고 break를 이용해 무한루프를 탈출합니다.
+
+초기 잔고는 0으로 시작합니다.
+
+실행 예시:
+---------------------------------
+
+1:입금 | 2:출금 | 3:잔고 | 4:종료
+
+---------------------------------
+선택> 1
+
+입금액> 10000
+---------------------------------
+
+1:입금 | 2:출금 | 3:잔고 | 4:종료
+
+---------------------------------
+선택> 3
+
+잔고> 10000
+---------------------------------
+
+1:입금 | 2:출금 | 3:잔고 | 4:종료
+
+---------------------------------
+선택> 4
+프로그램을 종료합니다. 
+
+        Scanner scan = new Scanner(System.in);
+        for( ; ; ){
+            System.out.print("1:입금 | 2:출금 | 3:잔고 | 4:종료"); int 선택 = scan.nextInt();
+            int 잔고 = 150000;
+            if(선택==1){
+                System.out.println("선택> "+선택);
+                System.out.print("입금액: "); int 입금액 = scan.nextInt();
+                잔고 += 입금액;
+                System.out.println(잔고);
+                break;
+            }
+            if(선택==2){
+                System.out.println("선택> "+선택);
+                System.out.print("입금액: "); int 출금액 = scan.nextInt();
+                잔고 -= 출금액;
+                System.out.println(잔고);
+                break;
+            }
+            if(선택==3){
+                System.out.println("선택> "+선택);
+                System.out.println(잔고);
+                break;
+            }
+            if(선택==4){
+                System.out.println("프로그램을 종료합니다.");
+                break;
+            }
+        }
+        */
+        Scanner scan = new Scanner(System.in);
+        int balance = 0;
+        for( ; ; ){
+            System.out.print("1:입금 | 2:출금 | 3:잔고 | 4:종료 \n메뉴를 선택하세요:"); int 선택 = scan.nextInt();
+            switch(선택){
+                case 1: 
+                    System.out.println("선택> "+선택);
+                    System.out.print("입금액: "); int 입금액 = scan.nextInt();
+                    balance += 입금액;
+                    System.out.println(balance);
+                    break;
+                case 2:
+                    System.out.println("선택> "+선택);
+                    System.out.print("출금액: "); int 출금액 = scan.nextInt();
+                    if (balance<출금액) {System.out.println("잔고부족");}
+                    else{balance -= 출금액; System.out.println(balance);}
+                    break;
+                case 3:
+                    System.out.println("선택> "+선택);
+                    System.out.println(balance);
+                case 4: break;
+                default : System.out.print("다시 입력하세요 \n");
+            }
+        }
+
 
     }//m e
 }//c e
