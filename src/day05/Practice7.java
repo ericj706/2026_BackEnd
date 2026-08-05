@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Practice7 {
     public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
 /*[문제 1] Book 클래스를 만드세요. 이 클래스는 title(문자열), author(문자열), price(정수) 멤버 변수를 가집니다.
 1. main 함수에서 Book 객체 2개를 생성하세요.
 2. 첫 번째 객체에는 "이것이 자바다", "신용권", 30000을, 두 번째 객체에는 "자바의 정석", "남궁성", 28000을 각각 저장하세요.
@@ -57,7 +58,7 @@ public class Practice7 {
 
 /*[문제 5] Product 클래스를 만드세요. name(문자열)과 price(정수) 멤버 변수를 가집니다.
 1. main 함수에서 Product 객체 2개를 생성하고, 각각 "새우깡", 1500과 "콜라", 2000 정보를 저장하세요.
-2. if문을 사용하여 두 객체의 price를 비교하고, 더 비싼 상품의 이름을 출력하세요.*/
+2. if문을 사용하여 두 객체의 price를 비교하고, 더 비싼 상품의 이름을 출력하세요.
         Product p1 = new Product();
         Product p2 = new Product();
         p1.name = "새우깡"; p1.price = 1500;
@@ -70,11 +71,11 @@ public class Practice7 {
 1. main 함수에서 Member 객체를 하나 생성하고, 아이디는 "admin", isLogin은 false로 초기화하세요.
 2. "로그인 전 상태: [isLogin 값]"을 출력하세요.
 3. 객체의 isLogin 값을 true로 변경하여 로그인 상황을 구현하세요.
-4. "로그인 후 상태: [isLogin 값]"을 출력하세요.*/
+4. "로그인 후 상태: [isLogin 값]"을 출력하세요.
         Member m1 = new Member();
         m1.id = "admin";
         m1.isLogin = false;
-        Scanner scan = new Scanner(System.in);
+        
         System.out.print("아이디를 입력하세요: "); String id = scan.next();
         if (id.equals(m1.id) ) {
             m1.isLogin = true; System.out.printf("로그인 여부: %s\n", m1.isLogin);
@@ -82,7 +83,7 @@ public class Practice7 {
 
 /*[문제 7] Television 클래스를 만드세요. channel(정수)과 volume(정수) 멤버 변수를 가집니다.
 1. main 함수에서 Television 객체를 생성하고, channel은 7, volume은 20으로 초기화하세요.
-2. 객체의 channel 값을 11로 변경하고, volume 값은 2 감소시킨 뒤, 변경된 채널과 볼륨을 출력하세요.*/
+2. 객체의 channel 값을 11로 변경하고, volume 값은 2 감소시킨 뒤, 변경된 채널과 볼륨을 출력하세요.
         Television t1 = new Television();
         t1.channel = 7; t1.volume = 20;
         t1.channel = 11; t1.volume -= 2;    // 변경
@@ -92,7 +93,7 @@ public class Practice7 {
 /*[문제 8] Player 클래스를 만드세요. name(문자열), power(정수), speed(정수) 멤버 변수를 가집니다.
 1. main 함수에서 Player 객체 2개를 생성하세요.
 2. 첫 번째 객체에는 "손흥민", 90, 95를, 두 번째 객체에는 "이강인", 85, 92를 각각 저장하세요.
-3. 두 객체의 power와 speed의 합을 각각 계산하고, 합이 더 높은 선수의 이름을 출력하세요.*/
+3. 두 객체의 power와 speed의 합을 각각 계산하고, 합이 더 높은 선수의 이름을 출력하세요.
         Player pl1 = new Player();
         Player pl2 = new Player();
         pl1.name = "손흥민"; pl1.power = 90; pl1.speed = 95;
@@ -106,8 +107,18 @@ public class Practice7 {
 
 /*[문제 9] MenuItem 클래스를 만드세요. name(문자열), price(정수), isSignature(boolean, 대표메뉴 여부) 멤버 변수를 가집니다.
 1. main 함수에서 MenuItem 객체 3개를 생성하고, 첫 번째는 "김치찌개", 8000, true, 두 번째는 "된장찌개", 8000, false, 세 번째는 "계란찜", 3000, false로 저장하세요.
-2. if문을 사용하여 isSignature가 true인 메뉴 객체를 찾아, "[대표메뉴] [메뉴이름] : [가격]원" 형식으로 출력하세요.*/
-        
+2. if문을 사용하여 isSignature가 true인 메뉴 객체를 찾아, "[대표메뉴] [메뉴이름] : [가격]원" 형식으로 출력하세요.
+        MenuItem menu1 = new MenuItem();
+        MenuItem menu2 = new MenuItem();
+        MenuItem menu3 = new MenuItem();
+
+        menu1.name = "김치찌개"; menu1.price = 8000; menu1.isSignature = true;
+        menu2.name = "된장찌개"; menu2.price = 8000; menu2.isSignature = false;
+        menu3.name = "계란찜"; menu3.price = 3000; menu3.isSignature = false;
+        if(menu1.isSignature == true){System.out.printf("[대표메뉴] [%s] : [%d원]\n",  menu1.name,menu1.price);}
+        if(menu2.isSignature == true){System.out.printf("[대표메뉴] [%s] : [%d원]\n",  menu2.name,menu2.price);}
+        if(menu3.isSignature == true){System.out.printf("[대표메뉴] [%s] : [%d원]\n",  menu3.name,menu3.price);}
+
         
 
 /*[문제 10] UserProfile 클래스를 만드세요. name(문자열), age(정수), mbti(문자열) 멤버 변수를 가집니다.
@@ -115,6 +126,12 @@ public class Practice7 {
 2. Scanner를 사용하여 사용자로부터 이름, 나이, MBTI를 순서대로 입력받으세요.
 3. 입력받은 값들을 생성된 객체의 각 멤버 변수에 저장하세요.
 3. 모든 정보가 저장된 객체의 멤버 변수들을 가져와 "--- 프로필 ---", "이름: [이름]", "나이: [나이]", "MBTI: [MBTI]" 형식으로 출력하세요.*/
+        UserProfile user = new UserProfile();
+        System.out.print("이름 입력: ");String name1 = scan.next(); 
+        System.out.print("나이 입력: ");int age1 = scan.nextInt(); 
+        System.out.print("MBTI 입력: ");String mbti1 = scan.next();
+        user.name = name1; user.age = age1; user.mbti = mbti1;
+        System.out.printf("---프로필--- \n이름: [%s] \n나이: [%d]\nMBTI: [%s]", user.name,user.age,user.mbti);
 
 
     }//me

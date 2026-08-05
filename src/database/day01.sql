@@ -11,3 +11,22 @@ SHOW DATABASE; -- 연결된 DB서버내의 모든 데이터베이스 목록 확�
 
 -- [2] 데이터베이스 로컬 경로
 SHOW VARIABLES LIKE 'datadir';
+
+-- [3] 데이터베이스 생성, 주의할점 : 중복된 데이터베이스명 불가능, SQL문법은 대소문자 구분하지 않는다.
+CREATE DATABASE mydb0804;
+
+-- [4] 데이터베이스 삭제 (코드로)
+DROP DATABASE mydb0804;
+
+DROP DATABASE if EXISTS mydb0804;
+
+-- [5] 데이터베이스 활성화 : 연결된 DB서버내 여러개 DB중 조작할 DB선택
+use mydb0804;
+
+-- [활용] : 프로젝트의 데이터베이스 초기화할때 기본 코드 3줄.
+drop DATABASE if EXISTS boardService;
+
+CREATE DATABASE boardService;
+
+use boardService;
+
