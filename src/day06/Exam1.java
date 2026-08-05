@@ -48,7 +48,7 @@ class Phone{
         this.model = model;
         this.color = color;
     }   // 자동으로 생성x => new Phone()에 빨간줄
-    Phone( String model, String color, int 가격){
+    Phone(String model, String color, int 가격){
         this.model = model;
         this.color = color;
         price = 가격; // 멤버변수를 다르게 해서 this 적용x
