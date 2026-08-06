@@ -72,7 +72,7 @@ public class Practice9 {
 
 2. main 함수에서 getStars(5)를 호출하여 반환된 문자열 "★★★★★"를 출력하세요.*/
         Visualizer star = new Visualizer();
-        String result3 = star.getStars(5);
+        String result4 = star.getStars(5);
 
 
 /*[문제 8] ParkingLot 클래스를 만드세요.
