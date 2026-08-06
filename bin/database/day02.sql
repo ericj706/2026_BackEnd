@@ -53,7 +53,7 @@ describe test2;
 CREATE table test3(
     필드명1 tinyint not null,   -- 해당 필드/속성에는 null 저장할 수 없도록 설정 * 값이 null이면 오류발생 *
     필드명2 smallint unique,    -- 해당 필드/속성에는 중복값을 저장할 수 없도록 설정 *값이 다른 레코드와 같다면 오류발생*
-    필드명3 int DEFAULT 100,    -- 해당 필드/속성에 레코드 생성시 기본값 10대입된다.
+    필드명3 int DEFAULT 10,    -- 해당 필드/속성에 레코드 생성시 기본값 10대입된다.
     필드명4 datetime DEFAULT now(), -- 예) 레코드 삽입시 현재날짜/시간 /now() 자동 대입된다.
     필드명5 bigint auto_increment,
     -- AUTO_INCREMENT : 래코드(행) 삽입 시 자동으로 순서번호 설정, 1 2 3 4 5 6 ~
