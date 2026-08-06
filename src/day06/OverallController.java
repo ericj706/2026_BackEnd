@@ -6,6 +6,7 @@ public class OverallController {
 
     public static void main(String[] args) {
         Post[] posts = new Post[100];
+        // 배열 입장에서는 게시물 자체를 저장. 작성자,내용을 작성하는게 아님
         Scanner scan = new Scanner(System.in);
 
         for (;;) {
@@ -14,6 +15,7 @@ public class OverallController {
             System.out.println("====================================== ");
             System.out.print("선택>");
             int ch = scan.nextInt();
+            // 분기 : 서로 다른 출력문 보여주기 위해
 
             if (ch == 1) {
                 scan.nextLine();
