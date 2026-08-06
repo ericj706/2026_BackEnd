@@ -50,7 +50,7 @@ main 함수에서 다음 두 객체를 각각 생성하고, 두 객체의 멤버
 매개변수 생성자를 통해 ("콜라", 2000) 정보로 생성한 객체*/
         Goods g1 = new Goods(null, 0);
         Goods g2 = new Goods("콜라", 2000);
-        System.out.printf("%s, %d원\n", g2.name, g2.price);
+        System.out.printf("%s. %d원\n", g2.name, g2.price);
 
 /*[문제 5] Member 클래스 (기본 생성자 및 초기값 설정)
 Member 클래스를 정의하세요. (멤버 변수: id, isLogin)
@@ -58,7 +58,8 @@ Member 클래스를 정의하세요. (멤버 변수: id, isLogin)
 Member 클래스에 기본 생성자를 만들고, 생성자 내부에서 id는 "guest", isLogin은 false로 초기화되도록 구현하세요.
 main 함수에서 new Member()로 객체를 생성한 뒤, 초기화된 id와 isLogin 값을 출력하여 확인하세요.*/
         Member m1 = new Member("guest", false);
-
+        System.out.printf("id: %s, 로그인상태: %s", m1.id, m1.isLogin);
+        
         
     }//m e
 }//c e
@@ -87,6 +88,7 @@ class Rectangle{
 
 class BankAccount{
     String accountNumber; String ownerName; int balance;
+
     BankAccount(String accountNumber, String ownerName, int balance){
         this.accountNumber = accountNumber;
         this.ownerName = ownerName;
@@ -108,6 +110,9 @@ class Goods{
 
 class Member{
     String id; Boolean isLogin;
+
+    public Member() {
+    }
 
     public Member(String id, Boolean isLogin) {
         this.id = id;
