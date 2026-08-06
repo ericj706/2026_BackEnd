@@ -17,7 +17,6 @@ class CLOTHES {
 class MATERIAL{
     int MATERIALID; //PK
     String MATERIALname;
-    String MATERIALguide;
 }
 //건조방법
 class DRY {
