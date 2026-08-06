@@ -6,7 +6,7 @@ public class OverallController {
 
     public static void main(String[] args) {
         Post[] posts = new Post[100];
-        // 배열 입장에서는 게시물 자체를 저장. 작성자,내용을 작성하는게 아님
+        // 배열 입장에서는 게시물 자체를 저장. 작성자,내용을 작성하는게
         Scanner scan = new Scanner(System.in);
 
         for (;;) {
@@ -25,6 +25,8 @@ public class OverallController {
                 String writer = scan.nextLine();
 
                 Post post = new Post(content, writer);
+
+                
                 boolean result = false;
 
                 for (int index = 0; index <= posts.length - 1; index++) {
