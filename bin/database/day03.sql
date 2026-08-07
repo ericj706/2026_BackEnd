@@ -1,58 +1,53 @@
-drop DATABASE IF EXISTS mydb0807;
-
-CREATE DATABASE mydb0807;
-
-use mydb0807;
-CREATE table test(
-    번호 int AUTO_INCREMENT,
-    constraint PRIMARY KEY(번호),
-    이름 VARCHAR(30) not null unique,
-    개수 int DEFAULT 2
+drop database if exists mydb0807;
+create database mydb0807;
+use mydb0807;       -- ctrl+shift+enter : 전체실행 , ctrl+enter : 한줄실행
+create table test(  -- create table 테이블명( 속성명 타입 제약조건 , 속성명 타입 제약조건 ) 
+    번호 int auto_increment , 
+    constraint primary key( 번호 ) , 
+    이름 varchar(30) not null unique , 
+    개수 int default 2
 );
--- DML: 조작어, 1) insert 레코드삽입 2) select 레코드조회 3) update 레코드수정 4) delete 레코드삭제
+-- DML : 조작어 , 1) insert 레코드삽입  2) select 레코드조회 3) update 레코드수정 4) delete 레코드삭제
 -- 레코드란? 테이블내 행/가로 단위
-# [1] insert : insert into 테이블명(속성명, 속성명) values(값1,값2)
-INSERT into test(번호,이름,개수) VALUES(1,"유재석",10);
-INSERT into test(이름,개수) VALUES("강호동", 20); -- 번호 값을 제외한 삽입
-INSERT into test(이름) VALUES("신동엽"); -- 번호(auto), 개수(default)
--- INSERT inro test(이름) VALUES("유재석"); 오류/중복불가능
-INSERT into test VALUES(4,"하하",30); -- 모든 속성값 순서대로 값 대입시 속성명 생략
-INSERT into test(이름) values("박명수"), ("수박"), ("바나나");
+# [1] insert : insert into 테이블명( 속성명1, 속성명2) values( 값1, 값2 )
+insert into test( 번호 , 이름 , 개수 ) values( 1 , "유재석" , 10 );
+insert into test( 이름 , 개수 ) values( "강호동", 20 ); -- 번호 값 제외한 삽입, auto_increment 자동번호
+insert into test( 이름 ) values( "신동엽" ); -- 번호(auto) , 개수(defalut) 제외한 삽입
+-- insert into test( 이름 ) values( "유재석" ); -- 이름(unique)는 중복 불가능 / 오류
+insert into test values( 4 , "하하" , 30 ); -- 모든 속성값을 정의 순서대로 값 대입시 속성명 생략
+insert into test( 이름 ) values( "박명수" ) , ( "수박" ) , ( "바나나" ); -- 3개의 레코드 삽입 
 
-# [2] select : select*from 테이블명
-SELECT * FROM test;
+# [2] select : select [*전체/속성명] from 테이블명 where 조건
+select * from test; -- 테이블내 모든 속성[*]의 레코드 조회
+select 이름 from test; -- 테이블내 '이름' 속성명의 레코드 조회
+select 이름, 개수 from test; -- '이름' '개수' 속성명의 레코드 조회
+select * from test where 이름 = "유재석"; -- 이름 속성명의 값이 유재석 이면 조회
+select * from test where 개수 >= 5; -- 개수 속성명의 값이 5 이상이면 조회
 
-SELECT 이름 FROM test;
+# [3] update : update 테이블명 set 속성명 = 새로운값 , 속성명 = 새로운값 where 조건
+update test set 개수 = 10;  -- 조건이 없으므로 테이블내 '개수'속성들의 값 *모두* 10 으로 수정
+update test set 개수 = 30 where 이름 = "유재석"; -- 이름 속성값이 유재석 이면 개수 속성값을 30 수정
+-- 번호 속성값이 2 이면 개수속성값을 40,이름속성값을 강호동2 수정
+update test set 개수 = 40 , 이름 = "강호동2" where 번호 = 2; 
 
-select 이름, 개수 from test;
-SELECT * from test WHERE 이름 = "유재석";
-SELECT * from test where 개수>=5;
-
-# [3] update : update 테이블명 set 속성명 = 새로운값, 속성명= 새로운 값 where 조건
-update test set 개수 = 10;
-
-update test set 개수 = 30 where 이름 = "유재석";
-
-UPDATE test set 개수 = 40, 이름 = " 강호동" where 번호 = 2;
-
--- [3] delete: delete from 테이블명 where 조건
--- delete from test; -- 조건이 없으므로 테이블내 모든 레코드 제거
-delete from test where 이름 = "유재석"; -- 이름 속성값이 유재석이면 삭제
-delete from test where 번호 = 2;    -- 번호 속성값이 2이면 삭제
--- (DML)delete: 테이블내 레코드 삭제 [vs] (DDL)truncate table: 테이블내 레코드 삭제 [vs] drop table: 테이블 자체 삭제
--- DML은 취소 가능, DDL은 취소(Rollback) 불가능
+# [4] delete : delete from 테이블명 where 조건 
+-- delete from test; -- 조건이 없으므로 테이블내 모든 레코드 제거 
+delete from test where 이름 = "유재석"; -- 이름 속성값이 유재석 이면 삭제 
+delete from test where 번호 = 2; -- 번호 속성값이 2 이면 삭제
+-- (DML)delete : 테이블내 레코드 삭제 [vs] (DDL)truncate table : 테이블내 레코드 삭제 [vs] drop table : 테이블 자체 삭제 
+-- DDL 은 취소 불가능 , DML(I/U/D) 취소(ROLLACK) 가능
 
 # SQL 연산자
 # 1. 회원테이블
 create table member(    # 아이돌 그룹
- mid char(8) not null ,   # 식별키   최대 8자리
+    mid char(8) not null ,   # 식별키   최대 8자리
     mname varchar(10) not null , # 그룹명  최대 10자리
     mnumber int not null ,   # 인원수  정수 +-21억정도
     maddr char(2) not null ,   # 지역  최대 2자리
     mphone1 char(3) ,    # 지역번호 최대 2자리
     mphone2 char(8) ,    # 전화번호  최대 8자리
     mheight smallint ,    # 평균키   정수 +-3만정도
- mdebut date ,     # 데뷔일   yyyy-mm-dd
+    mdebut date ,     # 데뷔일   yyyy-mm-dd
     constraint primary key ( mid )    # 제약조건
 );
 # 2. 구매테이블
@@ -89,3 +84,38 @@ INSERT INTO buy VALUES(NULL, 'APN', '청바지', '패션', 50, 1);
 INSERT INTO buy VALUES(NULL, 'MMU', '지갑', NULL, 30, 1);
 INSERT INTO buy VALUES(NULL, 'APN', '혼공SQL', '서적', 15, 1);
 INSERT INTO buy VALUES(NULL, 'MMU', '지갑', NULL, 30, 4);
+
+# [1] as 별칭 키워드, 조회 결과의 속성명 변경, as 생략하고 띄어쓰기 사용가능
+SELECT mid FROM member; -- member 테이블의 mid 속성 레코드조회
+SELECT mid as 회원아이디 FROM member; -- 조회 결과 mid 속성명을 회원아이디 별칭
+SELECT mid as 회원아이디 FROM member as 회원테이블; -- SQL내 속성명/테이블명 별칭
+SELECT mid 회원아이디 FROM member 회원테이블; -- as 생략하고 띄어쓰기 별칭
+
+# [2] DISTINCT: 조회 결과의 속성값 중복 제거
+SELECT DISTINCT maddr FROM member;  
+
+# [3] 산술연산자: +더하기, -빼기 /나누기 *곱하기 div몫 mod나머지
+SELECT mnumber 인원수, mnumber+3 더하기, mnumber-3 빼기, mnumber/3 나누기,
+    mnumber*3 곱하기, mnumber div 3 몫, mnumber mod 3 나머지 from member;
+
+# [4] 비교연산자: =같다 != 같지않다 >초과 <미만 >=이상 <=이하
+# [5] 논리연산자: and이면서 or이거나 not부정
+SELECT * FROM member WHERE mname = "블랙핑크";
+SELECT * FROM member WHERE mnumber = 4;
+SELECT * FROM member WHERE mname != "블랙핑크" ;
+SELECT * FROM member WHERE not mname = "블랙핑크"; -- 블랙핑크이면 반대(not부정)
+SELECT * FROM member WHERE mheight <= 162;
+SELECT * FROM member WHERE mheight >= 166 and mheight <= 170;
+SELECT * FROM member WHERE mheight BETWEEN 162 and 170;
+SELECT * FROM member WHERE maddr = "경북" or maddr = "전남" or maddr ="경기";
+SELECT * FROM member WHERE maddr in("경기","전남","경남");
+SELECT * FROM member WHERE mphone1 = null;
+SELECT * FROM member WHERE mphone1 is null; -- 주의할점: =null [x] / is null [o]
+
+-- 문자열 패턴: 속성명 like "검색단어" , %: 모든문자대응, _:개수만큼 문자대응
+SELECT * FROM member WHERE mname like "에이%"; -- "에이"로 시작하는 모든 문자
+SELECT * FROM member WHERE mname LIKE "에이_";
+SELECT * FROM member WHERE mname LIKE "%이%"; -- '이'가 포함된 모든 문자
+SELECT * FROM member WHERE mname LIKE "_이__"; -- 두번째 글자가 '이'인 4글자
+
+

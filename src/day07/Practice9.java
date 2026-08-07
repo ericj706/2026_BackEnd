@@ -72,7 +72,8 @@ public class Practice9 {
 
 2. main 함수에서 getStars(5)를 호출하여 반환된 문자열 "★★★★★"를 출력하세요.*/
         Visualizer star = new Visualizer();
-        String result4 = star.getStars(5);
+        System.out.println(star.getStars(5));
+
 
 
 /*[문제 8] ParkingLot 클래스를 만드세요.
@@ -80,16 +81,13 @@ public class Practice9 {
 1. 주차 시간(분)을 매개변수로 받아, 요금 규정에 따라 계산된 최종 주차 요금을 반환하는 calculateFee 메소드를 정의하세요.
 
 2. 요금 규정:
-
 기본 요금: 최초 30분까지 1,000원
-
 추가 요금: 30분 초과 시, 매 10분마다 500원씩 추가
-
 일일 최대 요금: 20,000원
-
 3. main 함수에서 calculateFee 메소드에 65, 140을 각각 인자로 전달하여 반환된 요금을 출력하세요.*/
-
-
+        ParkingLot pp = new ParkingLot();
+        pp.calculateFee(65);
+        pp.calculateFee(140);
     }
 }
 
@@ -148,5 +146,19 @@ class Visualizer{
             stars += "★";
         }   
         return stars;
+    }
+}
+class ParkingLot{
+    void calculateFee(int time){
+        int fee = 0;
+        if (time<=30) {
+            fee = 1000;
+        }else if (time > 30) {
+            fee = (time-30)/10*500 + 1000;
+        }
+        if (fee>20000) {
+            fee = 20000;
+        }
+        System.out.println(fee+"원");
     }
 }
