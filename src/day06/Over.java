@@ -1,8 +1,11 @@
+package day06;
 import java.util.Scanner;
-public class OverallController {
+
+public class Over {
     public static void main(String[] args) {
         OverallRepository repository = new OverallRepository();
         Scanner scan = new Scanner(System.in);
+        
         for (;;) {
             System.out.println("============ My Community ============ ");
             System.out.println("1.게시물쓰기 2.게시물출력");
@@ -33,28 +36,29 @@ public class OverallController {
         }
     }
 }
+
 // 데이터 저장 및 반환(조회) 비즈니스 로직 전담 클래스
 class OverallRepository {
-
+    // DB 대신에 배열 이용한 여러개 자료 저장 용도
     Post[] posts = new Post[100];
 
-    // 게시물 저장
+    // 1. 저장
     boolean save(Post post) {
         for (int index = 0; index < posts.length; index++) {
             if (posts[index] == null) {
-                posts[index] = post;
+                posts[index] = post;    
                 return true;
             }
         }
         return false;
     }
-
-
-    // 게시물 전체 목록 반환
+    // 2. 전체출력
+    // findAll(): 게시물 전체 목록 반환 -> 실제 현업에서 보안?역할분담?을 위해
     Post[] findAll() {
         return posts;
     }
 }
+
 class Post {
     String content;
     String writer;

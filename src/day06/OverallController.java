@@ -3,7 +3,11 @@ package day06;
 import java.util.Scanner;
 
 public class OverallController {
-
+    /*
+        OverallController : 입력SCanner/출력Print 담당하는 클래스 용도 (MVC패턴-VIEW) / HTML,JS
+        OverallRepository : 자료들의 저장소 및 관리 (MVC패턴-MODEL) / 데이터베이스
+        Post : 자료들의 모델 / 타입
+    */
     public static void main(String[] args) {
         Post[] posts = new Post[100];
         // 배열 입장에서는 게시물 자체를 저장. 작성자,내용을 작성하는게
