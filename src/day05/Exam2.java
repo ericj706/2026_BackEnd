@@ -2,7 +2,7 @@ package day05;
 
 public class Exam2 {
     
-    public class Main {
+    
         public static void main(String[] args) {
 
             Book b1 = new Book("Java Basics");      // 인스턴스 생성1
@@ -31,7 +31,7 @@ public class Exam2 {
             // 제시된 코드에서 총 인스턴스는 몇개 만들어졌고    [ 총 5개 생성 ]
             // main함수가 종료 되기 전 유효 한 인스턴스는 몇 개 이고 몇개가 사라졌을까? [  ]
         }
-    }
+    
 
 }
 
