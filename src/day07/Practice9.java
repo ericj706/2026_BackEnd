@@ -75,7 +75,6 @@ public class Practice9 {
         System.out.println(star.getStars(5));
 
 
-
 /*[문제 8] ParkingLot 클래스를 만드세요.
 
 1. 주차 시간(분)을 매개변수로 받아, 요금 규정에 따라 계산된 최종 주차 요금을 반환하는 calculateFee 메소드를 정의하세요.
