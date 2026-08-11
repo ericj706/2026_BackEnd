@@ -65,14 +65,18 @@ public class Practice11 {
             System.out.print("입력: "); String a3 = scan.next();
             list.add(a3);
 
-            if (a3 == "종료") { System.out.println(list); break; }
+            if (a3.equals("종료")) { list.remove(list.size()-1); System.out.println(list); break; }
+            
         }
 
 
 /*[문제 8] "국어", "수학", "사회", "과학"을 요소로 가지는 ArrayList를 생성하세요.
 1. .set(인덱스, 요소) 메소드를 사용하여 1번 인덱스의 "수학"을 "영어"로 수정하세요.
 2. 수정 후의 리스트 전체를 출력하여 결과가 올바른지 확인하세요.*/
-
+        ArrayList<String> major =  new ArrayList<>();
+        major.add("국어"); major.add("수학"); major.add("사회"); major.add("과학");
+        major.set(1, "영어");
+        System.out.println(major);
     }//me
 }//ce
 
