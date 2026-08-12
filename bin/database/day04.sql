@@ -51,7 +51,7 @@ select * from buy;
 
 # [1] 그룹절
 select * from buy;
-
+-- group by : 중복제거
 # select * from buy GROUP BY bpname; -- 제품명(bpname) 기준으로 그룹하고 모든 필드 조회 [오류]
 SELECT bpname FROM buy GROUP BY bpname; -- 제품명(bpname) 기준으로 그룹하고 bpname 필드만 조회
 
