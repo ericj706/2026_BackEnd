@@ -61,7 +61,7 @@
         - insert into 테이블명( 필드명 ) values( 값 ),( 값 );   : 2개 이상 레코드 등록
     2. select 필드명 from 테이블명 where 조건 
         - select * from 테이블명 : 테이블내 모든 필드의 레코드 조회
-    2. update 테이블명 set 필드명 = 수정할값 , 필드명 = 수정할값 where 조건
+    2. update 테이블명 set 필드명 = 수정할값 / where 조건
     4. delete from 테이블명 where 조건 
     
 [ 연산자 ]
