@@ -47,7 +47,6 @@ public class Practice12 {
 4. 만약 Bus 타입이 맞다면, Bus 타입으로 강제 변환한 뒤 checkFare() 메소드를 호출하세요.*/
         Vehicle vehicle = new Bus();
         Bus bus = new Bus();
-
         
         System.out.println();
 
@@ -61,11 +60,20 @@ public class Practice12 {
 1. Weapon 클래스와 이를 상속받는 Sword, Gun 클래스를 만드세요. 각 클래스는 "무기로 공격합니다.", "검으로 공격합니다.", "총으로 공격합니다."를 출력하는 attack() 메소드를 가집니다. (오버라이딩 활용)
 2. Weapon 타입의 매개변수를 받아 그 객체의 attack() 메소드를 호출하는 Character 클래스와 use(Weapon weapon) 메소드를 만드세요.
 3. main 함수에서 Sword 객체와 Gun 객체를 생성한 뒤, 이 객체들을 Character의 use() 메소드에 인자로 전달하여 각기 다른 결과가 출력되는 것을 확인하세요.*/
+        Sword sword = new Sword();
+        Gun gun = new Gun();
+        Character myChr = new Character();
+        myChr.use( sword );
+        myChr.use( gun );
+
 
 /*[문제 9] 필드와 메소드의 오버라이딩 차이
 1. String name = "상위"; 필드와 method() 메소드("상위 메소드" 출력)를 가진 SuperClass를 만드세요.
 2. SuperClass를 상속받고, String name = "하위"; 필드와 method() 메소드("하위 메소드" 출력)를 가진 SubClass를 만드세요.
 3. SuperClass obj = new SubClass(); 로 객체를 생성한 뒤, obj.name과 obj.method()를 각각 호출했을 때의 결과를 확인하고, 왜 다른 결과가 나오는지 주석으로 설명하세요.*/
+        SuperClass obj = new SubClass();
+        System.out.println(obj.name);
+        obj.method();
 
 /*[문제 10] 다중 상속 관계
 1. Device 클래스를 만드세요.
@@ -117,3 +125,26 @@ class Bus extends Vehicle{
 class Beverage{}
 class Coke extends Beverage{}
 class Coffee extends Beverage{}
+
+
+class Character{
+    void use(Weapon weapon){weapon.Attack();}
+}
+class Weapon{
+    void Attack(){System.out.println("무기로 공격합니다");}
+}
+class Sword extends Weapon{
+    void Attack(){System.out.println("검으로 공격합니다");}
+}
+class Gun extends Weapon{
+    void Attack(){System.out.println("총으로 공격합니다");}
+}
+
+class SuperClass{
+    String name ="상위";
+    void method() {System.out.println("상위 메소드");}
+}
+class SubClass extends SuperClass{
+    String name ="하위";
+    void method() {System.out.println("하위 메소드");}
+}

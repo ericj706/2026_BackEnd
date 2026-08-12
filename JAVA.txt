@@ -194,3 +194,6 @@
                 -> dao 폴더
                 -> dto 폴더
             -> AppStart 클래스
+
+[ 상속 ]
+    키워드 : 1.extends  2.instanceof
