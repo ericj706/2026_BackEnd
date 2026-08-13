@@ -19,6 +19,12 @@ public class Practice13 {
 1. RemoteControl 인터페이스를 만드세요.
 2. 이 인터페이스 안에, public static final로 최대 볼륨 MAX_VOLUME = 10과 최소 볼륨 MIN_VOLUME = 0 상수를 정의하세요.
 3. main 함수에서 객체를 생성하지 않고, RemoteControl.MAX_VOLUME과 같이 인터페이스 이름으로 직접 접근하여 두 상수를 출력하세요.*/
+        // [2] 상수는 인스턴스가 필요없다. 상수(static)이며 static은 프로그램 시작시 메모리할당 프로그램 종료시 초기화
+        // 클래스명.상수명 , 인터페이스명.상수명 
+        // 1. 첫글자가 대문자이면 인터페이스/클래스 명 , 2. 첫글자 소문자이면 변수/멤버변수
+        //  MyCar                                       myCar    ,   a.myCar
+        // 3. 전체가 대문자이면 상수                 , 4. 첫글자 소문자이면 ( ) 함수
+        //  MYCAR                                       myCar( )  ,  a.myCar( )
         System.out.println(RemoteControl.MAX_VOLUME);
         System.out.println(RemoteControl.MIN_VOLUME);
         
@@ -64,6 +70,8 @@ public class Practice13 {
 1. "환영합니다."를 출력하는 welcome() 추상 메소드를 가진 Greeting 인터페이스를 만드세요.
 2. main 함수에서, 별도의 클래스 파일을 만들지 않고, Greeting 인터페이스 타입의 변수를 선언하면서 익명 구현 객체를 생성하여 welcome() 메소드를 즉석에서 구현하고 호출하세요.
 예] Greeting g = new Greeting() { ... }; */
+        Greeting greeting = new Greeting() { public void welcome(){ System.out.println("구현"); } };
+        greeting.welcome();
 
 /*[문제 8] 디폴트 메소드 (Default Method)
 1.Device 인터페이스에, turnOn(), turnOff() 추상 메소드와 함께, public default void setMute(boolean mute) 디폴트 메소드를 추가하세요. 디폴트 메소드는 "무음 처리합니다."를 출력하도록 구현합니다.
@@ -131,3 +139,6 @@ class Duck implements Flyable, Swimmable{
     }
 }
 //5.
+
+//7.
+interface Greeting{ void welcome(); }
