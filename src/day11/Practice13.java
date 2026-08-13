@@ -1,6 +1,9 @@
 package day11;
 
-public class Practice12 {
+    // 다형성: 하나의 변수가 여러 타입들의 하나의 자료 저장. *변수는 하나의 자료저장*
+    // 3(int) byte a = 3, short b = a, long = a; <다형성>
+
+public class Practice13 {
     public static void main(String[] args) {
 /*[문제 1] 기본 인터페이스와 구현
 1. "소리를 냅니다."라는 추상 메소드 makeSound()를 가진 Soundable 인터페이스를 정의하세요.
@@ -16,23 +19,40 @@ public class Practice12 {
 1. RemoteControl 인터페이스를 만드세요.
 2. 이 인터페이스 안에, public static final로 최대 볼륨 MAX_VOLUME = 10과 최소 볼륨 MIN_VOLUME = 0 상수를 정의하세요.
 3. main 함수에서 객체를 생성하지 않고, RemoteControl.MAX_VOLUME과 같이 인터페이스 이름으로 직접 접근하여 두 상수를 출력하세요.*/
-
+        System.out.println(RemoteControl.MAX_VOLUME);
+        System.out.println(RemoteControl.MIN_VOLUME);
+        
 /*[문제 3] 다형성을 활용한 매개변수
 1. "공격!"이라는 추상 메소드 attack()을 가진 Attackable 인터페이스를 정의하세요.
 2. Attackable을 구현하는 Sword 클래스와 Gun 클래스를 만드세요.
 3. Attackable 타입의 객체를 매개변수로 받아, 해당 객체의 attack() 메소드를 호출하는 Character 클래스와 useWeapon(Attackable weapon) 메소드를 만드세요.
 4. main 함수에서 Sword 객체와 Gun 객체를 생성한 뒤, 이 객체들을 Character의 useWeapon() 메소드에 인자로 전달하여 동작을 확인하세요.*/
+        Sword sword = new Sword();
+        Gun gun = new Gun();
+        Character chr = new Character();
+        chr.useWeapon(sword);
+        chr.useWeapon(gun);
 
 /*[문제 4] 다중 인터페이스 구현
 1. "하늘을 납니다."를 출력하는 fly() 추상 메소드를 가진 Flyable 인터페이스를 만드세요.
 2. "물에서 헤엄칩니다."를 출력하는 swim() 추상 메소드를 가진 Swimmable 인터페이스를 만드세요.
 3. Duck 클래스가 Flyable과 Swimmable 두 인터페이스를 모두 구현하도록 작성하세요.
 4. main 함수에서 Duck 객체를 생성하고, fly()와 swim() 메소드를 모두 호출하여 결과를 확인하세요.*/
+        Duck duck = new Duck();
+        duck.fly(); duck.swim();
 
 /*[문제 5] instanceof와 인터페이스
 1. 문제 5에서 만든 Flyable, Swimmable 인터페이스와 Duck 클래스를 활용합니다.
 2. main 함수에서 Duck 객체를 생성하고, Object 타입의 변수에 저장하세요.
 3. if문과 instanceof 연산자를 사용하여, 해당 객체가 Flyable 타입인지, Swimmable 타입인지 각각 확인하고, 맞다면 해당 인터페이스 타입으로 강제 형변환하여 메소드를 호출하세요.*/
+        Duck object = new Duck();
+        if (object instanceof Flyable) {
+            Flyable object2 = (Flyable)object;
+            object2.fly(); 
+        }else if(object instanceof Swimmable){
+            Swimmable object2 = (Swimmable)object;
+            object2.swim();
+        }
 
 /*[문제 6] 인터페이스를 이용한 객체 교체
 1. "데이터를 저장합니다."라는 추상 메소드 save()를 가진 DataAccessObject 인터페이스를 만드세요.
@@ -75,5 +95,39 @@ class Dog implements Soundable{
 interface RemoteControl{
     public static final int MAX_VOLUME = 10;
     public static final int MIN_VOLUME = 0;
-
 }
+//3.
+interface Attackable{
+    public void attack();
+}
+class Sword implements Attackable{
+    @Override
+    public void attack() {
+        System.out.println("공격!");
+    }
+}
+class Gun implements Attackable{
+    @Override
+    public void attack() {
+        System.out.println("공격!");
+    }
+}
+class Character {
+    public void useWeapon(Attackable weapon){
+        
+    }
+}
+//4.
+interface Flyable{public void fly();}
+interface Swimmable{public void swim();}
+class Duck implements Flyable, Swimmable{
+    @Override
+    public void fly() {
+        System.out.println("하늘을 납니다.");
+    }
+    @Override
+    public void swim() {
+        System.out.println("물에서 헤엄칩니다.");
+    }
+}
+//5.

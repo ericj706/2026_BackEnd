@@ -39,7 +39,6 @@ class Car{
 // 인터페이스
 interface Tire{
     void roll(); // { }없는 메소드: 추상메소드
-
 }
 
 // 구현체

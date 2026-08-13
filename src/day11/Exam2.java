@@ -43,7 +43,7 @@ interface Buy{
     // 3. 정적메소드: static 이면 인스턴스(구현체) 없이 사용
     public static void method3( ){ }
     // 4. 비공개메소드: 하위타입 오버라이딩(구현) 불가능한 메소드
-    private void method4( ){ }
+    //private void method4(){ }
 }
 interface Sell{ void method5( );} 
 // 생략시 public abstract 기본적용됨.
