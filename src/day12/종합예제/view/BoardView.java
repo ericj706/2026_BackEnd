@@ -19,20 +19,21 @@ public class BoardView {
     public void run( ){
         while( true ){
             try{ // 예외처리 
-                System.out.print("1.등록 2.전체조회 3.개별수정 4.개별삭제 선택:");
+                System.out.print("\n 1.등록 2.전체조회 3.개별수정 4.개별삭제 선택:");
                 int ch = scan.nextInt();
-                if( ch == 1 ){ }
-                else if( ch == 2 ){ }
-                else if( ch == 3 ){ }
-                else if( ch == 4 ){ }
+                if( ch == 1 ){ save(); }
+                else if( ch == 2 ){ findAll(); }
+                else if( ch == 3 ){ update(); }
+                else if( ch == 4 ){ delete(); }
             }catch( InputMismatchException e ){
                 // 입력(성공) 했지만 타입반환에서 예외 이므로 입력객체 초기화
                 scan = new Scanner( System.in );
                 System.out.println("[다시입력]" + e);
             }
-        }
-    }
-    // [1] 등록 View
+        } 
+    } // run end 
+
+    // [1] 등록 VIEW
     public void save( ){
         System.out.print("내용: ");     String 내용 = scan.next();  // 1.1 저장할 자료 입력받기 
         System.out.print("작성자: ");   String 작성자 = scan.next();
@@ -41,6 +42,7 @@ public class BoardView {
         if( result ){ System.out.println(">등록성공");} // 1.4 응답받은 결과로 출력
         else{ System.out.println(">등록실패"); }
     }
+
     // [2] 전체조회 VIEW
     public void findAll( ){
         ArrayList<BoardDto> result = bc.findAll();// 1. 컨트롤러에게 요청하고 모든 게시물정보 들을 받는다.
@@ -58,11 +60,11 @@ public class BoardView {
         else{ System.out.println(">수정 실패(없는 번호)"); }
     }
     // [4] 개별삭제 VIEW
-    public void delete(){
-        System.out.println("삭제할번호: "); int 삭제할번호 = scan.nextInt();
-        boolean result = bc.delete(삭제할번호);
-        if(result){System.out.println(">삭제성공");}
-        else{System.out.println(">삭제실패 (없는번호)");}
+    public void delete( ){
+        System.out.print("삭제할번호: ");   int 삭제할번호 = scan.nextInt();
+        boolean result = bc.delete( 삭제할번호 ); // 매개변수가 1개 이므로 dto 없이
+        if( result ){ System.out.println(">삭제 성공"); }
+        else{ System.out.println(">삭제 실패(없는 번호)"); }
     }
-}
-
+    
+} // class end 

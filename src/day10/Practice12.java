@@ -1,5 +1,7 @@
 package day10;
 
+import java.util.ArrayList;
+
 public class Practice12 {
     public static void main(String[] args) {
 /*[문제 1] 기본 상속
@@ -57,6 +59,13 @@ public class Practice12 {
 2. Beverage를 상속받는 Coke와 Coffee 클래스를 만들고, 각 클래스에서 drink() 메소드를 오버라이딩하여 "콜라를 마십니다.", "커피를 마십니다."를 출력하도록 하세요.
 3. main 함수에서 Beverage 타입의 배열을 생성하고, 그 안에 Coke 객체와 Coffee 객체를 저장하세요.
 4. 반복문을 사용하여 배열의 모든 요소를 꺼내 drink() 메소드를 호출하고, 각기 다른 결과가 출력되는 것을 확인하세요.*/
+        ArrayList <Beverage> ber = new ArrayList<>();
+        ber.add(new Coke());
+        ber.add(new Coffee());
+        for(Beverage b : ber){
+            b.drink();
+        }
+        
 
 /*[문제 8] 다형성을 활용한 매개변수
 1. Weapon 클래스와 이를 상속받는 Sword, Gun 클래스를 만드세요. 각 클래스는 "무기로 공격합니다.", "검으로 공격합니다.", "총으로 공격합니다."를 출력하는 attack() 메소드를 가집니다. (오버라이딩 활용)
@@ -82,6 +91,10 @@ public class Practice12 {
 2. Device를 상속받는 Electronic 클래스를 만드세요.
 3. Electronic을 상속받는 Laptop 클래스를 만드세요.
 4. main 함수에서 Laptop 객체를 생성한 뒤, 이 객체가 Electronic 타입과 Device 타입으로도 형 변환이 가능한지 instanceof 연산자로 확인하고 결과를 출력하세요.*/
+        Laptop l1 = new Laptop();
+        System.out.println(l1 instanceof Electronic);// 변환가능
+        System.out.println(l1 instanceof Device);   // 변환가능
+
     }
 }
 class Person{String name;}
@@ -124,9 +137,15 @@ class Bus extends Vehicle{
     void checkFare(){System.out.println("요금을 확인합니다.");}
 }
 
-class Beverage{}
-class Coke extends Beverage{}
-class Coffee extends Beverage{}
+class Beverage{
+    void drink(){System.out.println("음료를 마십니다.");}
+}
+class Coke extends Beverage{
+    void drink(){System.out.println("콜라를 마십니다.");}
+}
+class Coffee extends Beverage{
+    void drink(){System.out.println("커피를 마십니다.");}
+}
 
 
 class Character{
@@ -150,3 +169,7 @@ class SubClass extends SuperClass{
     String name ="하위";
     void method() {System.out.println("하위 메소드");}
 }
+
+class Device{};
+class Electronic extends Device{};
+class Laptop extends Electronic{};

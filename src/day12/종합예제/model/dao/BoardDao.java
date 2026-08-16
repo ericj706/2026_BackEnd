@@ -31,9 +31,6 @@ public class BoardDao extends BaseDao {
         return false; // 실패 의미 갖는 false 반환
     } // 등록 end 
 
-    // [2] 조회 DAO
-
- 	
     // [2] 전체조회 DAO
     public ArrayList<BoardDto> findAll( ){
         ArrayList<BoardDto> list = new ArrayList<>(); // 2.7 레코드 정보 들을 담을 리스트
