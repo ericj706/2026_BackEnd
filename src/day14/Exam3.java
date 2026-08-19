@@ -53,7 +53,7 @@ public class Exam3 {
         System.out.println( str10.split("-") );
         String[] strAry = str10.split("-");
         System.out.println(strAry[0]);
-        System.out.println(strAry[0]);
+        System.out.println(strAry[1]);
 
         // 11.  .indexOf(찾을문자), 만일 찾을문자가 존재하면 인덱스, 없으면 -1
         //      .contains(찾을문자), 만일 찾을 문자가 존재하면 true, 없으면 false
@@ -64,7 +64,7 @@ public class Exam3 {
         byte[] strAry2 = "ABC".getBytes();
         System.out.println( Arrays.toString(strAry2)); // "ABC" --> [65,66,67]
         System.out.println( new String(strAry2) );  // [65,66,67] --> "ABC"
-        
+
 
 
     }//me

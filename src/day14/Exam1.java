@@ -49,7 +49,7 @@ public class Exam1 {
         // 3. .getFields( ) : 클래스내 멤버변수 정보 반환
         Field[ ] fields = c1.getFields();
         for( Field field : fields ){ System.out.println( field );}
-        // 4. .getConstructors( ) : 클래스내 생성자 정보 반환 
+        // 4. .getConstructors( ) : 클래스내 생성자 정보 반환
         Constructor[] constructors = c1.getConstructors();
         for( Constructor constructor : constructors ){ System.out.println( constructor );}
         // 5. .getMethods( ) : 클래스내 메소드 정보 반환 
