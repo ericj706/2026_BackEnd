@@ -11,7 +11,19 @@ public class Exam3 {
             스레드란? 하나의 프로세스내 최소 작업 단위 또는 실행 흐름 단위
                 - CPU가 (<--운영체제-->) 프로세스내 스레드를 통해 코드를 순차적으로 처리
             main함수란? JAVA 내 *단일 스레드 환경* main메소드가 제공한다.
-        */
+            멀티스레드 구현
+                1) Runnable 익명구현체 : new Runnable(){ run(); };
+                2) Runnable 구현체* : class 클래스 implements Runnable{ run() }
+                3) Thread 상속  : class 클래스 extends Thread{ run() }
+            주요 메소드
+                1) run( )   : 추상메소드이면서 작업스레드가 처리할 코드의 시작점
+                2) start( ) : 구현된 run( ) 메소드 실행하는 메소드, 주의할 점. Thread 클래스 제공
+
+            ** 활용처: 1) 톰캣(웹서버/SPRING): 다수의 유저(클라이언트)가 1개의 서버에 요청시 병렬처리제공
+                -> 동시 다발적으로 1개의 서버에 로그인 요청/채팅요청들을 병렬 처리한다.
+
+        */  
+       
         // [1] 단일(싱글) 스레드 : (컴파일된) 코드들을 실행 흐름 단위 1개일 때
         // -> main메소드가 main스레드 제공한다. (프로그램 당 1개 이상 존재)
         Toolkit toolkit = Toolkit.getDefaultToolkit();
