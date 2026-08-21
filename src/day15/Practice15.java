@@ -26,7 +26,7 @@ public class Practice15 {
 class InventorySlot< T > {
     private int slotNumber;
     private T data;
-
+    
     public InventorySlot(int slotNumber, T data){
         this.slotNumber = slotNumber;
         this.data = data;
